@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/pp1.jpg">
+    <title>About section Professional - by JiwanDev</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="none"/><circle cx="50" cy="50" r="40" fill="rgba(255,255,255,0.05)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: #6b7280;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Company Overview */
+        .company-overview {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .overview-image {
+            background: linear-gradient(135deg, #3b82f6 0%, #1e3a8a 100%);
+            height: 400px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+        }
+
+        .overview-content h3 {
+            font-size: 1.8rem;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .overview-content p {
+            color: #4b5563;
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+
+        /* Values Grid */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .value-card {
+            background: #f9fafb;
+            padding: 40px 30px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-color: #3b82f6;
+        }
+
+        .value-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #3b82f6 0%, #1e3a8a 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+        }
+
+        .value-card h4 {
+            font-size: 1.4rem;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .value-card p {
+            color: #6b7280;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Statistics */
+        .statistics {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            padding: 60px 0;
+            margin-bottom: 80px;
+            border-radius: 12px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-item {
+            color: white;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+
+        /* Team Section */
+        .team-section {
+            margin-bottom: 80px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .team-member {
+            text-align: center;
+        }
+
+        .member-photo {
+            width: 100%;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #e0e7ff 0%, #dbeafe 100%);
+            border-radius: 12px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #3b82f6;
+        }
+
+        .member-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 5px;
+        }
+
+        .member-role {
+            color: #6b7280;
+            font-size: 0.95rem;
+        }
+
+        /* Contact CTA */
+        .contact-cta {
+            background: #f9fafb;
+            padding: 60px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid #e5e7eb;
+        }
+
+        .contact-cta h3 {
+            font-size: 2rem;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .contact-cta p {
+            color: #6b7280;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6 0%, #1e3a8a 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #3b82f6;
+            border: 2px solid #3b82f6;
+        }
+
+        .btn-secondary:hover {
+            background: #3b82f6;
+            color: white;
+        }
+
+        /* Footer Info */
+        .footer-info {
+            background: #1a1a1a;
+            color: white;
+            padding: 60px 0;
+            margin-top: 80px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .footer-column h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .footer-column p,
+        .footer-column a {
+            color: #9ca3af;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: #3b82f6;
+        }
+
+        .watermark {
+    position: fixed;     
+    top: 50%;             
+    left: 50%;            
+    transform: translate(-50%, -50%);
+    opacity: 0.15;        
+    pointer-events: none;
+    z-index: 9999;        
+}
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .company-overview {
+                grid-template-columns: 1fr;
+            }
+
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .values-grid,
+            .team-grid,
+            .stats-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-cta {
+                padding: 40px 20px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Tentang Perusahaan Kami</h1>
+                <p>Membangun masa depan digital dengan solusi inovatif dan layanan berkualitas tinggi untuk kesuksesan bisnis Anda</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="main-content">
+        <div class="container">
+            <!-- Company Overview -->
+            <div class="company-overview">
+                <div class="overview-image">
+                    🏢
+                </div>
+                <div class="overview-content">
+                    <h3>Siapa Kami</h3>
+                    <p>
+                        Kami adalah perusahaan teknologi terkemuka yang berdedikasi untuk memberikan solusi 
+                        digital inovatif kepada klien kami di seluruh Indonesia. Dengan tim profesional yang 
+                        berpengalaman, kami telah membantu ratusan perusahaan mencapai transformasi digital mereka.
+                    </p>
+                    <p>
+                        Sejak didirikan pada tahun 2013, kami terus berkembang dan berinovasi untuk memberikan 
+                        layanan terbaik. Komitmen kami adalah menghadirkan solusi yang tidak hanya memenuhi 
+                        kebutuhan saat ini, tetapi juga mempersiapkan bisnis Anda untuk masa depan.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section Title -->
+            <div class="section-title">
+                <h2>Nilai-Nilai Kami</h2>
+                <p>Prinsip yang memandu setiap langkah kami dalam melayani klien</p>
+            </div>
+
+            <!-- Values Grid -->
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">🎯</div>
+                    <h4>Integritas</h4>
+                    <p>Kami berkomitmen untuk selalu jujur, transparan, dan bertanggung jawab dalam setiap aspek bisnis kami.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">💡</div>
+                    <h4>Inovasi</h4>
+                    <p>Terus berinovasi dan mengadopsi teknologi terbaru untuk memberikan solusi terdepan kepada klien.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🤝</div>
+                    <h4>Kolaborasi</h4>
+                    <p>Membangun kemitraan jangka panjang dengan klien melalui komunikasi dan kerja sama yang efektif.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">⚡</div>
+                    <h4>Keunggulan</h4>
+                    <p>Berkomitmen untuk memberikan kualitas tertinggi dalam setiap proyek yang kami kerjakan.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🌟</div>
+                    <h4>Kepuasan Klien</h4>
+                    <p>Mengutamakan kepuasan klien dengan layanan responsif dan solusi yang sesuai kebutuhan.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🚀</div>
+                    <h4>Pertumbuhan</h4>
+                    <p>Mendorong pertumbuhan berkelanjutan bagi klien, karyawan, dan perusahaan kami.</p>
+                </div>
+            </div>
+
+            <!-- Statistics -->
+            <div class="statistics">
+                <div class="container">
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Proyek Selesai</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">300+</span>
+                            <span class="stat-label">Klien Aktif</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">12+</span>
+                            <span class="stat-label">Tahun Pengalaman</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">98%</span>
+                            <span class="stat-label">Tingkat Kepuasan</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Section -->
+            <div class="team-section">
+                <div class="section-title">
+                    <h2>Tim Kepemimpinan</h2>
+                    <p>Para profesional berpengalaman yang memimpin visi dan misi perusahaan</p>
+                </div>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-photo">👨‍💼</div>
+                        <div class="member-name">Budi Santoso</div>
+                        <div class="member-role">Chief Executive Officer</div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-photo">👩‍💼</div>
+                        <div class="member-name">Siti Nurhaliza</div>
+                        <div class="member-role">Chief Technology Officer</div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-photo">👨‍💻</div>
+                        <div class="member-name">Ahmad Rizki</div>
+                        <div class="member-role">Head of Development</div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-photo">👩‍💻</div>
+                        <div class="member-name">Dewi Lestari</div>
+                        <div class="member-role">Head of Design</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact CTA -->
+            <div class="contact-cta">
+                <h3>Mari Bekerja Sama</h3>
+                <p>Hubungi kami untuk mendiskusikan bagaimana kami dapat membantu bisnis Anda berkembang</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-primary">Hubungi Kami</a>
+                    <a href="#" class="btn btn-secondary">Lihat Portfolio</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Info -->
+    <footer class="footer-info">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4>Tentang Perusahaan</h4>
+                    <p>PT. Digital Solusi Indonesia</p>
+                    <p>Perusahaan teknologi terkemuka yang menghadirkan solusi digital inovatif untuk bisnis modern.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Kontak</h4>
+                    <p>Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="99f0f7fff6d9fdf0fef0edf8f5eaf6f5eceaf0b7faf6b7f0fd">[email&#160;protected]</a></p>
+                    <p>Telepon: +62 21 5555 1234</p>
+                    <p>Alamat: Jakarta Selatan, Indonesia</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Tautan Cepat</h4>
+                    <a href="#">Layanan</a>
+                    <a href="#">Portfolio</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Karir</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="watermark">by JiwanDev</div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer untuk animasi saat scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Tambahkan animasi fade-in untuk elemen
+        document.querySelectorAll('.value-card, .team-member, .stat-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        console.log('Professional About Section loaded');
+    </script>
+</body>
+</html>
